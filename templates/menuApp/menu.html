@@ -4,36 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Menú</title>
-
-    <link rel="stylesheet" href="{% static 'CSS/estilos.css' %}">
+    <meta name="theme-color" content="#0f172a">
+    <title>Menú principal | RETAIL</title>
+    <link rel="stylesheet" href="{% static 'CSS/menu.css' %}">
 </head>
 
 <body>
+    <header class="site-header">
+        <a class="brand" href="/" aria-label="RETAIL, menú principal">
+            <span class="brand-mark" aria-hidden="true">R</span>
+            <span>RETAIL</span>
+        </a>
+        <span class="header-caption">Panel principal</span>
+    </header>
 
-    <h1>Menú</h1>
+    <main class="main-content">
+        <section class="welcome" aria-labelledby="page-title">
+            <div class="logo-frame">
+                <img src="{% static 'images/estaticas/django.png' %}" alt="Django" class="app-logo">
+            </div>
+            <p class="eyebrow">EXPLORA RETAIL</p>
+            <h1 id="page-title">Menú principal</h1>
+            <p class="intro">Accede a la información y los servicios de la aplicación.</p>
+        </section>
 
-    <img
-        src="{% static 'images/estaticas/django.png' %}"
-        width="200"
-        height="100"
-        alt="Django"
-    >
-
-    <ul>
-        <li>
-            <a href="/informacion/">Información</a>
-        </li>
-
-        <li>
-            <a href="/servicios/">Servicios</a>
-        </li>
-
-        <li>
-            <a href="/servicios/precios/">Precios</a>
-        </li>
-    </ul>
-
+        <nav class="menu-navigation" aria-label="Secciones principales">
+            <a class="menu-link" href="/informacion/">
+                <span class="link-number">01</span>
+                <span class="link-copy">
+                    <span class="link-title">Información</span>
+                    <span class="link-description">Conoce la aplicación</span>
+                </span>
+                <span class="link-arrow" aria-hidden="true">&#8599;</span>
+            </a>
+            <a class="menu-link" href="/servicios/">
+                <span class="link-number">02</span>
+                <span class="link-copy">
+                    <span class="link-title">Servicios</span>
+                    <span class="link-description">Explora lo que ofrecemos</span>
+                </span>
+                <span class="link-arrow" aria-hidden="true">&#8599;</span>
+            </a>
+            <a class="menu-link" href="/servicios/precios/">
+                <span class="link-number">03</span>
+                <span class="link-copy">
+                    <span class="link-title">Precios</span>
+                    <span class="link-description">Consulta nuestros valores</span>
+                </span>
+                <span class="link-arrow" aria-hidden="true">&#8599;</span>
+            </a>
+        </nav>
+    </main>
 </body>
 </html>

@@ -1,26 +1,36 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto RETAIL Django - Info App</title>
-    <img src="{% static 'images/estaticas/webpay.png' %}" alt="Logo de la aplicación" width="200">  
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">   
+    <!-- Enlace al archivo CSS separado -->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
 </head>
 <body>
 
-    <nav>
-        <a href="/">Volver al menú principal</a>
-    </nav>
+    <!-- Cabecera / Navegación -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="back-link">Volver al menú principal</a>
+        </nav>
+    </header>
 
-    <section>
-        <h1>Bienvenido a la aplicación InfoApp</h1>
-        <h2>Esta es una aplicación de ejemplo para el proyecto RETAIL Django.</h2>
-        <h3>Aquí puedes encontrar información relevante sobre la aplicación y su funcionalidad.</h3>
-        <h4>Explora las diferentes secciones y disfruta de la experiencia.</h4>
-    </section>
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <div class="logo-container">
+            <img src="{% static 'images/estaticas/webpay.png' %}" alt="Logo Webpay" class="app-logo">
+        </div>
+
+        <section class="info-section">
+            <h1 class="title">Bienvenido a la aplicación InfoApp</h1>
+            <h2 class="subtitle">Esta es una aplicación de ejemplo para el proyecto RETAIL Django.</h2>
+            <p class="info-text">Aquí puedes encontrar información relevante sobre la aplicación y su funcionalidad.</p>
+            <p class="info-subtext">Explora las diferentes secciones y disfruta de la experiencia.</p>
+        </section>
+    </main>
 
 </body>
 </html>
