@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav">
+        <h1>Formulario de Ingreso</h1>
+        <p>Selecciona una opción del sistema</p>
+
+        <a href="/informacion/" class="button">
+            Información
+        </a>
+        <a href="/servicios/" class="button">
+            Servicios
+        </a>
+        <a href="/servicios/login" class="button">
+            Login
+        </a>
+        <a href="/" class="back">
+            Volver al menú principal
+        </a>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Listar y Gestionar Servicios</h2>
+            <div class="top-bar">
+                <a href="/servicios/crear/" class="button">
+                    Crear Servicio
+                </a>
+                <a href="/" class="btn-btn-back">
+                    Volver al menú 
+                </a>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>a</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Observaciones</th>
+                        <th>Disponibilidad</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for servicio in servicios %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ servicio.nombre }}</td>
+                        <td>{{ servicio.descripcion }}</td>
+                        <td>{{ servicio.disponibilidad }}</td>
+                        <td>
+                            {% if servicio.disponibilidad %}
+                                Disponible
+                            {% else %}
+                                No disponible
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div class="actions">
+                                <a href="/servicios/editar/{{ servicio.id }}" class="button">
+                                    Editar
+                                </a>
+                                <a href="/servicios/eliminar/{{ servicio.id }}" class="button">
+                                    Eliminar
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

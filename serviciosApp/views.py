@@ -12,6 +12,8 @@ def servicios(request):
         "servicios": datos
     })
 
+def login_servicios(request):
+    return render(request, "serviciosApp/login.html")
 # PRECIOS
 def precios(request):
     datos = PrecioServicio.objects.all()

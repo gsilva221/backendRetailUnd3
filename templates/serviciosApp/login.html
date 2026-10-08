@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <title>Gestión de servicios | RETAIL</title>
+    <link rel="stylesheet" href="{% static 'CSS/servicios-login.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="/" aria-label="RETAIL, menú principal">
+            <span class="brand-mark" aria-hidden="true">R</span>
+            <span>RETAIL</span>
+        </a>
+        <span class="header-caption">Gestión de servicios</span>
+    </header>
+
+    <main class="main-content">
+        <section class="welcome" aria-labelledby="page-title">
+            <p class="eyebrow">MÓDULO DE SERVICIOS</p>
+            <h1 id="page-title">Gestiona tus servicios</h1>
+            <p class="intro">Consulta y administra los servicios disponibles en el sistema.</p>
+        </section>
+
+        <nav class="service-navigation" aria-label="Opciones de servicios">
+            <a class="service-link" href="/servicios/">
+                <span class="link-number" aria-hidden="true">01</span>
+                <span class="link-copy">
+                    <span class="link-title">Listar y gestionar servicios</span>
+                    <span class="link-description">Abre el catálogo de servicios</span>
+                </span>
+                <span class="link-arrow" aria-hidden="true">&#8599;</span>
+            </a>
+        </nav>
+
+        <a class="back-link" href="/">&#8592; Volver al menú principal</a>
+    </main>
+</body>
+</html>
