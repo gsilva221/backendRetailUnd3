@@ -1,7 +1,9 @@
 import json
 from pathlib import Path
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
+
+from serviciosApp.forms import PrecioServicioCrearForm, ServicioForm
 from .models import PrecioServicio, Servicio
 
 def servicios(request):
@@ -17,18 +19,19 @@ def login_servicios(request):
 # PRECIOS
 
 def servicio_crear(request):
-    if request.method == "POST":
-        nombre = request.POST.get("nombre")
-        descripcion = request.POST.get("descripcion")
-        disponibilidad = request.POST.get("disponibilidad")
-
-        # Crear un nuevo objeto Servicio y guardarlo en la base de datos
-        servicio = Servicio(nombre=nombre, descripcion=descripcion, disponibilidad=disponibilidad)
-        servicio.save()
-
-        return HttpResponse(f"Servicio '{servicio.nombre}' creado exitosamente.")
-
-    return render(request, "serviciosApp/crear.html")
+    form_servicio = ServicioForm(request.POST or None)
+    form_precio = PrecioServicioCrearForm(request.POST or None)
+    if request.method == 'POST':
+        if form_servicio.is_valid() and form_precio.is_valid():
+            servicio = form_servicio.save()
+            precio = form_precio.save(commit=False)
+            precio.servicio = servicio
+            precio.save()
+            return redirect('/servicios/')
+    return render(request, 'serviciosApp/crear.html', {
+        'form_servicio': form_servicio,
+        'form_precio': form_precio
+    })
 def precios(request):
     datos = PrecioServicio.objects.all()
 
