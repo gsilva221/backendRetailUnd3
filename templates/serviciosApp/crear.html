@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <title>Crear servicio | RETAIL</title>
+    <link rel="stylesheet" href="{% static 'CSS/crear-servicio.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="/" aria-label="RETAIL, menú principal">
+            <span class="brand-mark" aria-hidden="true">R</span>
+            <span>RETAIL</span>
+        </a>
+        <span class="header-caption">Gestión de servicios</span>
+    </header>
+
+    <main class="main-content">
+        <section class="welcome" aria-labelledby="page-title">
+            <p class="eyebrow">CATÁLOGO DE SERVICIOS</p>
+            <h1 id="page-title">Crear servicio</h1>
+            <p class="intro">Completa los datos del servicio y su precio para incorporarlo al catálogo.</p>
+        </section>
+
+        <form class="service-form" method="post">
+            {% csrf_token %}
+
+            <section class="form-section" aria-labelledby="service-details-title">
+                <div class="section-heading">
+                    <span class="section-number" aria-hidden="true">01</span>
+                    <div>
+                        <h2 id="service-details-title">Datos del servicio</h2>
+                        <p>Información general y disponibilidad.</p>
+                    </div>
+                </div>
+                {{ form_servicio.as_p }}
+            </section>
+
+            <section class="form-section" aria-labelledby="price-details-title">
+                <div class="section-heading">
+                    <span class="section-number" aria-hidden="true">02</span>
+                    <div>
+                        <h2 id="price-details-title">Datos del precio</h2>
+                        <p>Define el valor, la moneda y el descuento.</p>
+                    </div>
+                </div>
+                {{ form_precio.as_p }}
+            </section>
+
+            <div class="form-actions">
+                <a class="back-link" href="/servicios/">Volver al catálogo</a>
+                <button class="submit-button" type="submit">Crear servicio <span aria-hidden="true">&#8594;</span></button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

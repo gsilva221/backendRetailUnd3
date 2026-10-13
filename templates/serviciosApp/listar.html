@@ -1,81 +1,85 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="theme-color" content="#0f172a">
+    <title>Catálogo de servicios | RETAIL</title>
+    <link rel="stylesheet" href="{% static 'CSS/listar-servicios.css' %}">
 </head>
 <body>
-    <div class="nav">
-        <h1>Formulario de Ingreso</h1>
-        <p>Selecciona una opción del sistema</p>
+    <header class="site-header">
+        <a class="brand" href="/" aria-label="RETAIL, menú principal">
+            <span class="brand-mark" aria-hidden="true">R</span>
+            <span>RETAIL</span>
+        </a>
+        <nav class="header-navigation" aria-label="Navegación principal">
+            <a href="/informacion/">Información</a>
+            <a href="/servicios/login/">Servicios</a>
+        </nav>
+    </header>
 
-        <a href="/informacion/" class="button">
-            Información
-        </a>
-        <a href="/servicios/" class="button">
-            Servicios
-        </a>
-        <a href="/servicios/login" class="button">
-            Login
-        </a>
-        <a href="/" class="back">
-            Volver al menú principal
-        </a>
-    </div>
-
-    <div class="container">
-        <div class="card">
-            <h2>Listar y Gestionar Servicios</h2>
-            <div class="top-bar">
-                <a href="/servicios/crear/" class="button">
-                    Crear Servicio
-                </a>
-                <a href="/" class="btn-btn-back">
-                    Volver al menú 
-                </a>
+    <main class="main-content">
+        <section class="page-heading" aria-labelledby="page-title">
+            <div>
+                <p class="eyebrow">MÓDULO DE SERVICIOS</p>
+                <h1 id="page-title">Catálogo de servicios</h1>
+                <p class="intro">Consulta y administra los servicios disponibles en el sistema.</p>
             </div>
-            <table>
+            <a class="primary-action" href="/servicios/crear/">
+                <span aria-hidden="true">+</span>
+                Crear servicio
+            </a>
+        </section>
+
+        <section class="catalog-section" aria-labelledby="catalog-title">
+            <div class="catalog-heading">
+                <div>
+                    <h2 id="catalog-title">Servicios registrados</h2>
+                    <p>Detalle de servicios y disponibilidad actual.</p>
+                </div>
+                <a class="back-link" href="/">Volver al menú principal</a>
+            </div>
+
+            <div class="table-scroll" role="region" aria-label="Listado de servicios" tabindex="0">
+                <table>
                 <thead>
                     <tr>
-                        <th>a</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Observaciones</th>
-                        <th>Disponibilidad</th>
-                        <th>Precio</th>
-                        <th>Acciones</th>
+                        <th scope="col">N.º</th>
+                        <th scope="col">Servicio</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Disponibilidad</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for servicio in servicios %}
                     <tr>
-                        <td>{{ forloop.counter }}</td>
-                        <td>{{ servicio.nombre }}</td>
-                        <td>{{ servicio.descripcion }}</td>
-                        <td>{{ servicio.disponibilidad }}</td>
+                        <td class="row-number">{{ forloop.counter|stringformat:"02d" }}</td>
+                        <td class="service-name">{{ servicio.nombre }}</td>
+                        <td class="service-description">{{ servicio.descripcion }}</td>
+                        <td><span class="availability">{{ servicio.disponibilidad }}</span></td>
                         <td>
-                            {% if servicio.disponibilidad %}
-                                Disponible
-                            {% else %}
-                                No disponible
-                            {% endif %}
-                        </td>
-                        <td>
-                            <div class="actions">
-                                <a href="/servicios/editar/{{ servicio.id }}" class="button">
-                                    Editar
-                                </a>
-                                <a href="/servicios/eliminar/{{ servicio.id }}" class="button">
-                                    Eliminar
-                                </a>
+                            <div class="row-actions">
+                                <a href="/servicios/editar/{{ servicio.id }}" class="text-action">Editar</a>
+                                <a href="/servicios/eliminar/{{ servicio.id }}" class="text-action text-action-danger">Eliminar</a>
                             </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td class="empty-state" colspan="5">
+                            <span class="empty-mark" aria-hidden="true">+</span>
+                            <strong>Aún no hay servicios registrados</strong>
+                            <span>Cuando agregues un servicio, aparecerá en este listado.</span>
                         </td>
                     </tr>
                     {% endfor %}
                 </tbody>
-            </table>
-        </div>
-    </div>
+                </table>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
