@@ -10,7 +10,7 @@ class ServicioForm(forms.ModelForm):
 class PrecioServicioCrearForm(forms.ModelForm):
     class Meta:
         model = PrecioServicio
-        fields = ['precio', 'descuento', 'moneda', 'observaciones']
+        fields = ['precio', 'descuento', 'moneda', 'observacion']
 
 class PrecioServicioForm(forms.ModelForm):
     class Meta:
