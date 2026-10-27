@@ -1,144 +1,61 @@
-/* =========================
-   ESTILOS GENERALES
-   ========================= */
+ 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-    color: #333;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
 
-/* =========================
-   CONTENEDOR PRINCIPAL
-   ========================= */
+        /* Tarjeta de bienvenida */
+        .welcome-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            max-width: 400px;
+            width: 90%;
+        }
 
-.contenedor {
-    width: 80%;
-    max-width: 1000px;
-    margin: 40px auto;
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
+        .welcome-card h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
 
-/* =========================
-   TÍTULOS
-   ========================= */
+        .welcome-card p {
+            font-size: 1rem;
+            margin-bottom: 25px;
+            color: #e0e0e0;
+            line-height: 1.5;
+        }
 
-h1 {
-    text-align: center;
-    color: #1a237e;
-}
+        /* Botón de acción */
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #fff;
+            color: #667eea;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
 
-h2 {
-    color: #283593;
-}
-
-/* =========================
-   ENCABEZADO
-   ========================= */
-
-header {
-    background-color: #1a237e;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-header img {
-    margin-bottom: 10px;
-}
-
-/* =========================
-   MENÚ
-   ========================= */
-
-nav {
-    background-color: #283593;
-    padding: 15px;
-    text-align: center;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #ffca28;
-}
-
-/* =========================
-   BOTONES
-   ========================= */
-
-.boton {
-    display: inline-block;
-    background-color: #1a73e8;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-}
-
-.boton:hover {
-    background-color: #1557b0;
-}
-
-/* =========================
-   BOTÓN VOLVER AL MENÚ
-   ========================= */
-
-.volver-menu {
-    display: block;
-    width: fit-content;
-    margin: 30px auto 0;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/* =========================
-   FORMULARIOS
-   ========================= */
-
-form {
-    max-width: 500px;
-    margin: 20px auto;
-}
-
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: #1a73e8;
-    outline: none;
-}
-
-/* =========================
-   PIE DE PÁGINA
-   ========================= */
-
-footer {
-    margin-top: 40px;
-    background-color: #222;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
+        .btn:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }

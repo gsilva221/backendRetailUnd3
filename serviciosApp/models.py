@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Servicio(models.Model):
     nombre = models.CharField(max_length=100)
@@ -12,8 +13,7 @@ class Servicio(models.Model):
 class PrecioServicio(models.Model):
     servicio = models.OneToOneField(
         Servicio,
-        on_delete=models.CASCADE 
-        #Esto conecta ambos modelos, cada servicio tendrá un precio asociado.
+        on_delete=models.CASCADE
     )
     precio = models.DecimalField(
         max_digits=10,
@@ -30,7 +30,7 @@ class PrecioServicio(models.Model):
     )
     observacion = models.CharField(
         max_length=200,
-        blank=True
+        blank= True
     )
 
     def __str__(self):

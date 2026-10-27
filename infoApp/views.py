@@ -1,5 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+# Create your views here.
 
-#Create your views here.
-def inicio(request):
-    return render(request, 'infoApp/index.html')
+def informacion(request):
+    return render(request, 'infoApp/inicio.html')

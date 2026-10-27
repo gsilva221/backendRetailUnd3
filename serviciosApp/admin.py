@@ -1,7 +1,8 @@
 from django.contrib import admin
 from .models import Servicio, PrecioServicio
+# Register your models here.
 
-@admin.register(Servicio)
+@admin. register(Servicio)
 class ServicioAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre', 'descripcion', 'disponibilidad')
     search_fields = ('nombre',)
@@ -11,6 +12,6 @@ class ServicioAdmin(admin.ModelAdmin):
 @admin.register(PrecioServicio)
 class PrecioServicioAdmin(admin.ModelAdmin):
     list_display = ('id', 'servicio', 'precio', 'moneda', 'descuento')
-    search_fields = ('servicio__nombre',)
+    search_fields = ('serivcio_nombre',)
     list_filter = ('moneda',)
     ordering = ('id',)
